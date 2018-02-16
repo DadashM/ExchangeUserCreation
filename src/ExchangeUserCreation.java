@@ -28,11 +28,11 @@ public class ExchangeUserCreation extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         mainPanel = new javax.swing.JPanel();
-        firstName = new javax.swing.JTextField();
-        lastName = new javax.swing.JTextField();
-        fullName = new javax.swing.JTextField();
-        logonName = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        firstNameField = new javax.swing.JTextField();
+        lastNameField = new javax.swing.JTextField();
+        fullNameField = new javax.swing.JTextField();
+        logonNameField = new javax.swing.JTextField();
+        domainsList = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -40,12 +40,12 @@ public class ExchangeUserCreation extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         preview = new javax.swing.JLabel();
-        CancelButton = new javax.swing.JButton();
+        cancelButton = new javax.swing.JButton();
         createButton = new javax.swing.JButton();
         resetButton = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         passwordField = new javax.swing.JPasswordField();
-        confiromPasswordField = new javax.swing.JPasswordField();
+        confirmPasswordField = new javax.swing.JPasswordField();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -62,7 +62,7 @@ public class ExchangeUserCreation extends javax.swing.JFrame {
         setTitle("Mail Creater");
         setResizable(false);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "@koroglu.az", "@shirin.az", "@bahra.az", "@nurretail.az", "@konfirom.az" }));
+        domainsList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "@koroglu.az", "@shirin.az", "@bahra.az", "@nurretail.az", "@konfirom.az" }));
 
         jLabel1.setText("First Name");
         jLabel1.setMaximumSize(new java.awt.Dimension(86, 14));
@@ -92,10 +92,15 @@ public class ExchangeUserCreation extends javax.swing.JFrame {
         preview.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         preview.setText("@koroglu.az");
 
-        CancelButton.setText("Cancel");
+        cancelButton.setText("Cancel");
 
         createButton.setText("Create");
         createButton.setMargin(null);
+        createButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                createButtonActionPerformed(evt);
+            }
+        });
 
         resetButton.setText("Reset");
 
@@ -112,7 +117,7 @@ public class ExchangeUserCreation extends javax.swing.JFrame {
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(mainPanelLayout.createSequentialGroup()
                         .addGap(85, 85, 85)
-                        .addComponent(CancelButton))
+                        .addComponent(cancelButton))
                     .addGroup(mainPanelLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -134,14 +139,14 @@ public class ExchangeUserCreation extends javax.swing.JFrame {
                         .addGap(87, 87, 87))
                     .addGroup(mainPanelLayout.createSequentialGroup()
                         .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(confiromPasswordField, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(confirmPasswordField, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(passwordField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
-                            .addComponent(firstName, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lastName, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(fullName, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(logonName, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addComponent(firstNameField, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lastNameField, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(fullNameField, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(logonNameField, javax.swing.GroupLayout.Alignment.LEADING))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(domainsList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))))
             .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(mainPanelLayout.createSequentialGroup()
@@ -154,23 +159,24 @@ public class ExchangeUserCreation extends javax.swing.JFrame {
         mainPanelLayout.setVerticalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(firstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(firstNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lastNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(fullName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fullNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(logonName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(logonNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(domainsList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(preview)
@@ -181,10 +187,10 @@ public class ExchangeUserCreation extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(confiromPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(confirmPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(createButton, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(resetButton, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
@@ -207,6 +213,10 @@ public class ExchangeUserCreation extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void createButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createButtonActionPerformed
+        System.out.println(passwordField.getText());
+    }//GEN-LAST:event_createButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -245,12 +255,12 @@ public class ExchangeUserCreation extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton CancelButton;
-    public javax.swing.JPasswordField confiromPasswordField;
+    public javax.swing.JButton cancelButton;
+    public javax.swing.JPasswordField confirmPasswordField;
     public javax.swing.JButton createButton;
-    public javax.swing.JTextField firstName;
-    public javax.swing.JTextField fullName;
-    public javax.swing.JComboBox<String> jComboBox1;
+    public javax.swing.JComboBox<String> domainsList;
+    public javax.swing.JTextField firstNameField;
+    public javax.swing.JTextField fullNameField;
     public javax.swing.JLabel jLabel1;
     public javax.swing.JLabel jLabel2;
     public javax.swing.JLabel jLabel3;
@@ -259,8 +269,8 @@ public class ExchangeUserCreation extends javax.swing.JFrame {
     public javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
-    public javax.swing.JTextField lastName;
-    public javax.swing.JTextField logonName;
+    public javax.swing.JTextField lastNameField;
+    public javax.swing.JTextField logonNameField;
     private javax.swing.JPanel mainPanel;
     public javax.swing.JPasswordField passwordField;
     public javax.swing.JLabel preview;
