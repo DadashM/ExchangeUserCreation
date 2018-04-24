@@ -1,0 +1,8 @@
+1. If (fullname) boshdusa
+	1) (firstname) fullname-in qabaqina yaz
+		else
+	2) (fullname) icin oxu, evvelinden yaz, bir denede ara qoy
+2. if (firstname) yazilibsa
+	1) ara qoy, yaz 
+		else
+	2) yaz getsin
