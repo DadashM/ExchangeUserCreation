@@ -238,7 +238,11 @@ public class ExchangeUserCreation extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void createButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createButtonActionPerformed
-        System.out.println(passwordField.getText());
+        /*
+            dadash - chechking for typed datas and whether they are correctly typed or not.
+        */
+        saveTypedData = new SaveTypedData(firstNameField.getText(), lastNameField.getText(), fullNameField.getText(), logonNameField.getText(), String.valueOf(passwordField.getPassword()), String.valueOf(confirmPasswordField.getPassword()));
+        saveTypedData.checkForTypedData();
     }//GEN-LAST:event_createButtonActionPerformed
 
 
@@ -269,6 +273,10 @@ public class ExchangeUserCreation extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_fullNameFieldKeyTyped
 
+    
+    // dadash - Declared classes by me
+    SaveTypedData saveTypedData;
+    
     /**
      * @param args the command line arguments
      */
